@@ -23,4 +23,24 @@
   - WebSocket은 어떤 프로그래밍 언어에 국한되어있지 않음
   - WebSocket은 브라우저와 backend 사이에만 발생할 수 있는게 아님
 
+## ws
+- node.js로 webSocket 서버를 편하게 만들 수 있는 library
+- websocket protocol의 설명에 있는 기본 기능만 있는 core
+- ws로 채팅방을 만들려면, 별도의 logic을 구현해야하는데, 그때는 framework를 사용할 것
+  - 마치 ws는 js고, 추후 framework는 react인 것
 
+
+### ws를 사용해 connection 만들기
+- back-end code
+```javascript
+wss.on("connection", (socket) => {
+  console.log(socket);
+});
+```
+- 여기에서 socket은 연결된 브라우저를 의미, 저장해야함
+
+- front-end code
+```javascript
+const socket = new WebSocket(`ws://${window.location.host}`);
+```
+- 여기서 socket은 서버로의 연결을 의미
